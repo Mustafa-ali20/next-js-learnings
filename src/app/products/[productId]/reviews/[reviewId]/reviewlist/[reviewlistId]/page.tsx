@@ -13,7 +13,7 @@ export default async function ReviewDetails({
       <h1>
         review {reviewId} for product {productId}
       </h1>
-      <h2>Here's the review list {reviewlistId}</h2>
+      <h2>Here the review list {reviewlistId}</h2>
     </>
   );
 }

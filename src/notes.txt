@@ -1,0 +1,39 @@
+if u want to create ur own custom not found page make this exact folder name
+not-found.tsx or jsx or js
+
+// Private folder
+a way to tell next js hey this folder is just for the internal stuff - dont include it in the routing system
+the folder and all its subfolder are excluded from routingAdd an underscore at the start of the folder
+
+pricvatae folder are super useful for a bunch of stuff- keeping logic ui separate from routing logiv
+- Having a consistent way to organcize internal files in your project
+- making it easier to group related files in your code editor 
+- Avoiding potential naming confilicts with future Next.js file naming conventions
+
+if u actually want an underscore in ur URL use %5F instead . thats just url version encoded of an underscore
+
+// Route Groups 
+(auth) wrap it in paranthesis inside it is the login, register, and forgot-password folder for better and neat structure of the files
+this will treat it as organizational and exclude it fro the url the auth word in the url 
+
+// Layouts
+pages are route specific UI components
+A layout is Ui that is shared Between multiple pages in your app 
+like header footer sidebar nav bar etc
+
+and if u accidenlty delete it nextjs will automatically regenerate it by its own 
+
+// Nested Layout
+
+// Meta data Rules and Configuting Metadata
+Both ;ayout and pages can export metadata. Laypout metadata applies to all its pages, while page metadata is specific to that page
+- metadata follows a top-down order starting from root level
+-when metadata exists in multiple palces along a route, they merge togehter wioth page metadat overriding layout metadata for matching properties
+
+meta data wont wont if u use "use client"
+so what u have to do make a separate component
+
+//Title Metadata
+
+//Naviagtion
+
