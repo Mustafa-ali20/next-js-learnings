@@ -37,3 +37,55 @@ so what u have to do make a separate component
 
 //Naviagtion
 
+//params and searchParams
+for given URL
+params is a promise that resolves to an object containing dynamic route parameter (like id)
+
+searchParams is a promise that resolves to an object containing the query parameters (like filters and sorting)
+you wont be able yto acess search Params in layout.tsx
+
+params
+
+What it is: an object containing the dynamic route parameters (from the URL path).
+
+Example URL: /products/123
+
+Folder structure: app/products/[id]/page.tsx
+
+Inside page function:
+
+export default function Page({ params }: { params: { id: string } }) {
+  console.log(params.id); // "123"
+  return <div>Product {params.id}</div>;
+}
+
+
+Promise confusion: Some docs say “params is a Promise” because generateMetadata or generateStaticParams functions are async, but in the actual page component params is already a normal object.
+
+searchParams
+
+What it is: an object containing query string parameters from the URL (everything after ?).
+
+Example URL: /products/123?sort=price&filter=men
+
+Inside page function:
+
+export default function Page({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
+  console.log(searchParams.sort);   // "price"
+  console.log(searchParams.filter); // "men"
+  return <div>Sorted by {searchParams.sort}</div>;
+}
+
+
+Difference from params:
+
+params → dynamic route parts ([id])
+
+searchParams → query string (?key=value)
+
+🔥 TL;DR Boss
+Prop	Comes from	Example
+params	Dynamic route	/products/123 → {id: "123"}
+searchParams	Query string	/products/123?sort=price → {sort: "price"}
+
+Only in async functions like generateMetadata might people write params or searchParams as Promises, because you await them. But in the page function, they are normal objects.
