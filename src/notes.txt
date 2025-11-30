@@ -89,3 +89,35 @@ params	Dynamic route	/products/123 → {id: "123"}
 searchParams	Query string	/products/123?sort=price → {sort: "price"}
 
 Only in async functions like generateMetadata might people write params or searchParams as Promises, because you await them. But in the page function, they are normal objects.
+
+
+//Naviagting Progammatically
+
+// Templates
+Templates are similar to layouts in that they are also UI shared Between multiple pages in your app
+whenever a user navigates Between routes sharing a Templates you get a completely fresh start
+-a new Template component instance is mounted
+-DOM elemts are recreated
+- state is cleared
+- effects are re-synchronised
+
+// Error handling error.tsx
+
+//Parallel Routes (Advnaced routes)
+Parallel routes in Next.js are defined using a feature known as "Slots"
+Slots help in organize content in a modular way
+to createa. slot we use a "@folder" naming conventions each defined slot autoimatically becomes a prop in its corresponding layout tsx file
+
+
+// Conditional Routes
+// whether u wanna show different content based on if a user is logged in or not
+
+you might want to display a dashboard for authenticated users but show a login page for those who arent 
+
+conditional routes allow us to achieve this while maintainig completely separate code on the same URL
+
+// Intercepting Route
+Intercepting routes is an advanced routing mechanism that allows you to load a route from another part of your application within the current layout
+
+Its particularly useful when u want to display new content while keeping your user in same context.
+//eg if u wanna show the login page when someone clicks login u can just show a model of it on the same page () also thew url changes but on the same page
